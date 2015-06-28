@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+	<title>{{ title }} - blog</title>
+	{% else %}
+	<title>b2b - blog</title>
+	{% endif %}
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+    {% with messages = get_flashed_messages() %}
+  		{% if messages %}
+	    <ul>
+	    	{% for message in messages %}
+	        	<li>{{ message }} </li>
+	    	{% endfor %}
+	    </ul>
+	{% endif %}
+	{% endwith %}
+		{% block content %}{% endblock %}
+	</div>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
